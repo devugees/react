@@ -1,13 +1,13 @@
 import React from 'react';
 import {render} from 'react-dom';
 
-import Header from 'Header.jsx'
+import LikeCount from 'LikeCount.jsx'
 
 class App extends React.Component {
   render () {
     return (
       <div>
-        <Header/>
+        <LikeCount id="2"/>
       </div>
     );
   }

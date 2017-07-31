@@ -1,7 +1,7 @@
 import React from 'react';
-import { Button } from 'reactstrap';
+import { Button, Badge } from 'reactstrap';
 
-class Header extends React.Component {
+class LikeCount extends React.Component {
 
   constructor(props) {
     super(props);
@@ -17,11 +17,9 @@ class Header extends React.Component {
   render() {
     return (
       <div>
-        Likes : <span>{this.state.likesCount}</span>
+        <h1>Likes : <Badge>{this.state.likesCount}</Badge></h1>
         <div>
           <Button onClick={this.onLike} color="primary">Like me !</Button>
-
-
         </div>
       </div>
     );
@@ -29,4 +27,4 @@ class Header extends React.Component {
 
 }
 
-export default Header;
+export default LikeCount;
