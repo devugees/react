@@ -19766,6 +19766,7 @@ var LikeCount = function (_React$Component) {
 
     _this.state = { likesCount: localStorage.likes };
     _this.onLike = _this.onLike.bind(_this);
+    _this.resetLikes = _this.resetLikes.bind(_this);
     return _this;
   }
 
@@ -19779,6 +19780,12 @@ var LikeCount = function (_React$Component) {
         console.log(localStorage.likes);
       }
 
+      this.setState({ likesCount: localStorage.likes });
+    }
+  }, {
+    key: "resetLikes",
+    value: function resetLikes() {
+      localStorage.setItem("likes", 0);
       this.setState({ likesCount: localStorage.likes });
     }
   }, {
@@ -19804,6 +19811,11 @@ var LikeCount = function (_React$Component) {
             "button",
             { className: "btn btn-primary", onClick: this.onLike, color: "primary" },
             "Like me !"
+          ),
+          _react2.default.createElement(
+            "button",
+            { className: "btn btn-primary", onClick: this.resetLikes, color: "primary" },
+            "reset Likes"
           )
         )
       );

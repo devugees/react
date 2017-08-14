@@ -6,6 +6,7 @@ class LikeCount extends React.Component {
     super(props);
     this.state = {likesCount : localStorage.likes};
     this.onLike = this.onLike.bind(this);
+    this.resetLikes = this.resetLikes.bind(this);
   }
 
   onLike () {
@@ -16,9 +17,10 @@ class LikeCount extends React.Component {
       console.log(localStorage.likes);
     }
 
-
-
-
+    this.setState({likesCount: localStorage.likes});
+  }
+  resetLikes() {
+    localStorage.setItem("likes", 0);
     this.setState({likesCount: localStorage.likes});
   }
 
@@ -28,6 +30,7 @@ class LikeCount extends React.Component {
         <h1>Likes : <div className="badge badge-danger">{this.state.likesCount}</div></h1>
         <div>
           <button className="btn btn-primary" onClick={this.onLike} color="primary">Like me !</button>
+          <button className="btn btn-primary" onClick={this.resetLikes} color="primary">reset Likes</button>
         </div>
       </div>
     );
