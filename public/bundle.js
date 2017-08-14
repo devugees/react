@@ -19764,7 +19764,7 @@ var LikeCount = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (LikeCount.__proto__ || Object.getPrototypeOf(LikeCount)).call(this, props));
 
-    _this.state = { likesCount: 0 };
+    _this.state = { likesCount: localStorage.likes };
     _this.onLike = _this.onLike.bind(_this);
     return _this;
   }
@@ -19772,12 +19772,14 @@ var LikeCount = function (_React$Component) {
   _createClass(LikeCount, [{
     key: "onLike",
     value: function onLike() {
-      localStorage.setItem("likes", 1);
-      localStorage.likes = Number(localStorage.likes) + 1;
-      console.log(localStorage.likes);
+      if (localStorage.likes == undefined) {
+        localStorage.setItem("likes", 1);
+      } else {
+        localStorage.likes = Number(localStorage.likes) + 1;
+        console.log(localStorage.likes);
+      }
 
-      var newLikesCount = localStorage.likes;
-      this.setState({ likesCount: newLikesCount });
+      this.setState({ likesCount: localStorage.likes });
     }
   }, {
     key: "render",

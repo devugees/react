@@ -4,17 +4,22 @@ class LikeCount extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {likesCount : 0};
+    this.state = {likesCount : localStorage.likes};
     this.onLike = this.onLike.bind(this);
   }
 
   onLike () {
-    localStorage.setItem("likes", 1);
-    localStorage.likes = Number(localStorage.likes) +1
-    console.log(localStorage.likes);
+    if(localStorage.likes == undefined) {
+      localStorage.setItem("likes", 1);
+    } else {
+      localStorage.likes = Number(localStorage.likes) +1
+      console.log(localStorage.likes);
+    }
 
-    let newLikesCount = localStorage.likes;
-    this.setState({likesCount: newLikesCount});
+
+
+
+    this.setState({likesCount: localStorage.likes});
   }
 
   render() {
