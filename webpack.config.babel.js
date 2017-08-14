@@ -3,11 +3,11 @@ import WebpackNotifierPlugin from 'webpack-notifier';
 import path from 'path';
 
 // react components directory
-const COMPONENTS_PATH = path.join(__dirname, 'src/client/app');
+const COMPONENTS_PATH = path.join(__dirname, 'app');
 // app entry file (used for webpack only)
-const APP_ENTRY_FILE = './index.jsx';
+const APP_ENTRY_FILE = './App.jsx';
 // bundle path (JavaScripts root)
-const OUTPUT_PATH = path.join(__dirname, 'src/client/public');
+const OUTPUT_PATH = path.join(__dirname, 'public');
 // bundle (rails assets file)
 const OUTPUT_FILE = 'bundle.js';
 
@@ -31,10 +31,10 @@ export default {
   devtool: 'source-map',
   module: {
     loaders: [
-      { 
+      {
         test: /\.jsx?$/,         // Match both .js and .jsx files
-        exclude: /node_modules/, 
-        loader: "babel", 
+        exclude: /node_modules/,
+        loader: "babel",
         query:
         {
           presets:['react']

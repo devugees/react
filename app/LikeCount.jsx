@@ -1,5 +1,4 @@
 import React from 'react';
-import { Button, Badge } from 'reactstrap';
 
 class LikeCount extends React.Component {
 
@@ -17,9 +16,9 @@ class LikeCount extends React.Component {
   render() {
     return (
       <div>
-        <h1>Likes : <Badge>{this.state.likesCount}</Badge></h1>
+        <h1>Likes : <div className="badge badge-danger">{this.state.likesCount}</div></h1>
         <div>
-          <Button onClick={this.onLike} color="primary">Like me !</Button>
+          <button className="btn btn-primary" onClick={this.onLike} color="primary">Like me !</button>
         </div>
       </div>
     );
