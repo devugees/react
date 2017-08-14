@@ -35870,6 +35870,10 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactDom = __webpack_require__(158);
 
+var _ProdComponent = __webpack_require__(166);
+
+var _ProdComponent2 = _interopRequireDefault(_ProdComponent);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -35890,6 +35894,11 @@ var ProdList = function (_React$Component) {
   _createClass(ProdList, [{
     key: 'render',
     value: function render() {
+      var listArr = [['ehoyo'], ['bombom'], ['mutchacha']];
+      var tempArr = listArr.map(function (textProp) {
+        return _react2.default.createElement(_ProdComponent2.default, { text: textProp });
+      });
+
       return _react2.default.createElement(
         'div',
         null,
@@ -35900,63 +35909,9 @@ var ProdList = function (_React$Component) {
         ),
         _react2.default.createElement(
           'div',
-          { className: 'card-group mt-3', id: 'product-app' },
-          _react2.default.createElement(
-            'div',
-            { className: 'card' },
-            _react2.default.createElement('img', { className: 'card-img-top', src: 'http://www.placehold.it/300x200', alt: 'Card image cap' }),
-            _react2.default.createElement(
-              'div',
-              { className: 'card-body' },
-              _react2.default.createElement(
-                'p',
-                { className: 'card-text' },
-                'Some quick example text to build on the card title and make up the bulk of the card\'s content.'
-              )
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'card' },
-            _react2.default.createElement('img', { classNameName: 'card-img-top', src: 'http://www.placehold.it/300x200', alt: 'Card image cap' }),
-            _react2.default.createElement(
-              'div',
-              { className: 'card-body' },
-              _react2.default.createElement(
-                'p',
-                { className: 'card-text' },
-                'Some quick example text to build on the card title and make up the bulk of the card\'s content.'
-              )
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'card' },
-            _react2.default.createElement('img', { className: 'card-img-top', src: 'http://www.placehold.it/300x200', alt: 'Card image cap' }),
-            _react2.default.createElement(
-              'div',
-              { className: 'card-body' },
-              _react2.default.createElement(
-                'p',
-                { className: 'card-text' },
-                'Some quick example text to build on the card title and make up the bulk of the card\'s content.'
-              )
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'card' },
-            _react2.default.createElement('img', { className: 'card-img-top', src: 'http://www.placehold.it/300x200', alt: 'Card image cap' }),
-            _react2.default.createElement(
-              'div',
-              { className: 'card-body' },
-              _react2.default.createElement(
-                'p',
-                { className: 'card-text' },
-                'Some quick example text to build on the card title and make up the bulk of the card\'s content.'
-              )
-            )
-          )
+          { className: 'card-deck' },
+          tempArr,
+          ';'
         )
       );
     }
@@ -36105,6 +36060,79 @@ var FooterApp = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = FooterApp;
+
+/***/ }),
+/* 166 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(31);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(158);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Comp = function Comp(_ref) {
+  var text = _ref.text;
+
+  return _react2.default.createElement(
+    'div',
+    { className: 'card' },
+    _react2.default.createElement('img', { className: 'card-img-top', src: 'http://www.placehold.it/300x200', alt: 'Card image cap' }),
+    _react2.default.createElement(
+      'div',
+      { className: 'card-body' },
+      _react2.default.createElement(
+        'p',
+        { className: 'card-text' },
+        text
+      )
+    )
+  );
+};
+
+var ProdComponent = function (_React$Component) {
+  _inherits(ProdComponent, _React$Component);
+
+  function ProdComponent(props) {
+    _classCallCheck(this, ProdComponent);
+
+    var _this = _possibleConstructorReturn(this, (ProdComponent.__proto__ || Object.getPrototypeOf(ProdComponent)).call(this, props));
+
+    _this.state = {
+      text: props.text
+    };
+    return _this;
+  }
+
+  _createClass(ProdComponent, [{
+    key: 'render',
+    value: function render() {
+
+      return _react2.default.createElement(Comp, { text: this.state.text });
+    }
+  }]);
+
+  return ProdComponent;
+}(_react2.default.Component);
+
+exports.default = ProdComponent;
 
 /***/ })
 /******/ ]);

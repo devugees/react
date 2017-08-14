@@ -13,6 +13,7 @@ class App extends React.Component {
         <LikeCount id="2"/>
       </div>
     );
+    
   }
 }
 

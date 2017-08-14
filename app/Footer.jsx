@@ -32,11 +32,10 @@ class FooterApp extends React.Component{
             </div>
           </div>
         </footer>
-
       </div>
     )
   }
 }
 
 
-export default FooterApp;
+  export default FooterApp;
