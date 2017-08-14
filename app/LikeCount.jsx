@@ -9,7 +9,11 @@ class LikeCount extends React.Component {
   }
 
   onLike () {
-    let newLikesCount = this.state.likesCount + 1;
+    localStorage.setItem("likes", 1);
+    localStorage.likes = Number(localStorage.likes) +1
+    console.log(localStorage.likes);
+
+    let newLikesCount = localStorage.likes;
     this.setState({likesCount: newLikesCount});
   }
 
