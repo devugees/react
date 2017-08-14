@@ -22,6 +22,10 @@ class Nav extends React.Component {
               <li className="nav-item">
                 <a className="nav-link disabled" href="#">Disabled</a>
               </li>
+                <li className="nav-item">
+                <a className="nav-link " data-toggle="modal" data-target="#exampleModalLong" href="#" >Modal</a>
+                
+              </li>
             </ul>
             <form className="form-inline my-2 my-lg-0">
               <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"/>
@@ -34,3 +38,4 @@ class Nav extends React.Component {
   }
 }
 export default Nav;
+
