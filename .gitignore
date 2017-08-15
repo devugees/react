@@ -1,5 +1,4 @@
 node_modules
 *.map
-*.css
 public/bundle.js
 css/global.css
