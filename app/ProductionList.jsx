@@ -1,14 +1,18 @@
 import React from 'react';
 import {render} from 'react-dom';
 
-import ProdComponent from 'ProdComponent.jsx';
+import Product from 'Product.jsx';
 
-class ProdList extends React.Component {
+class ProductsList extends React.Component {
 
   render() {
-    let listArr = [['ehoyo','Cuban Cigar','1000 $','imgs/cubancigar.jpg'], ['bombom','Mustang','2000 $','imgs/mustang.jpg'], ['muchacha','Hashesh','3000 $','imgs/hash.jpg']];
-    const tempArr= listArr.map((textProp) => {
-      return (<ProdComponent text={textProp[0]} title={textProp[1]} prize={textProp[2]} picSrc={textProp[3]}/>)
+    const tempArr = this.props.products.map((product) => {
+      return (
+        <Product
+          text={product.description}
+          title={product.title}
+          price={product.price}
+          picSrc={product.img} />);
     });
 
     return (
@@ -21,4 +25,4 @@ class ProdList extends React.Component {
     )
   }
 }
-export default ProdList;
+export default ProductsList;
