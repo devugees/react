@@ -12452,6 +12452,10 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactDom = __webpack_require__(159);
 
+var _NavJumbotron = __webpack_require__(165);
+
+var _NavJumbotron2 = _interopRequireDefault(_NavJumbotron);
+
 var _LikeCount = __webpack_require__(160);
 
 var _LikeCount2 = _interopRequireDefault(_LikeCount);
@@ -12497,6 +12501,7 @@ var App = function (_React$Component) {
   return App;
 }(_react2.default.Component);
 
+(0, _reactDom.render)(_react2.default.createElement(_NavJumbotron2.default, null), document.getElementById('jumbotron-app'));
 (0, _reactDom.render)(_react2.default.createElement(App, null), document.getElementById('app'));
 
 /***/ }),
@@ -35672,6 +35677,47 @@ if ( !noGlobal ) {
 return jQuery;
 } );
 
+
+/***/ }),
+/* 165 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(22);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var NavJumbotron = function NavJumbotron() {
+  return _react2.default.createElement(
+    "div",
+    { className: "jumbotron jumbotron-fluid bg-transparent" },
+    _react2.default.createElement(
+      "h1",
+      { className: "display-3" },
+      " WElCOME DEAR CUSTOMER !"
+    ),
+    _react2.default.createElement(
+      "p",
+      { className: "lead" },
+      "Here you will find all the products we are offering."
+    ),
+    _react2.default.createElement(
+      "p",
+      null,
+      "Feel free  to explore all the sections."
+    )
+  );
+};
+
+exports.default = NavJumbotron;
 
 /***/ })
 /******/ ]);
