@@ -12,12 +12,23 @@ import Modal from 'Modal.jsx';
 
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {likesCount:localStorage.likes};
+    this.updateLikes = this.updateLikes.bind(this);
+  }
+
+  updateLikes() {
+    this.setState({likesCount:localStorage.likes})
+  }
+
+
   render () {
     return (
       <div>
         <Nav/>
         <NavJumbotron/>
-        <LikeCount id="2"/>
+        <LikeCount id="2" likes={this.state.likesCount} updateLikes={this.updateLikes} />
         <br/>
         <ProdList/>
         <br/>
