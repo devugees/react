@@ -110,12 +110,14 @@ export default {
       Button: "exports-loader?Button!bootstrap/js/dist/button",
       Carousel: "exports-loader?Carousel!bootstrap/js/dist/carousel",
       Collapse: "exports-loader?Collapse!bootstrap/js/dist/collapse",
+      Popper: ['popper.js', 'default'],
       Dropdown: "exports-loader?Dropdown!bootstrap/js/dist/dropdown",
       Modal: "exports-loader?Modal!bootstrap/js/dist/modal",
       Popover: "exports-loader?Popover!bootstrap/js/dist/popover",
       Scrollspy: "exports-loader?Scrollspy!bootstrap/js/dist/scrollspy",
       Tab: "exports-loader?Tab!bootstrap/js/dist/tab",
       Util: "exports-loader?Util!bootstrap/js/dist/util"
+
     }),
   ]
 };
