@@ -9,12 +9,12 @@ class App extends React.Component {
   render () {
     return (
       <div>
+        <Nav/>
         <LikeCount id="2"/>
+        <Modal/>
       </div>
     );
   }
 }
 
 render(<App/>, document.getElementById('app'));
-render(<Nav/>,document.getElementById('nav-app'));
-render(<Modal/>,document.getElementById('modal-app'));
