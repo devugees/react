@@ -29,7 +29,9 @@ class App extends React.Component {
         <Nav/>
         <NavJumbotron/>
         <LikeCount id="2" likes={this.state.likesCount} updateLikes={this.updateLikes} />
+        <br/>
         <ProdList/>
+        <br/>
         <FooterApp/>
         <Modal/>
       </div>
@@ -39,3 +41,7 @@ class App extends React.Component {
 }
 
 render(<App/>, document.getElementById('app'));
+
+$(function () {
+  $('[data-toggle="popover"]').popover()
+})
