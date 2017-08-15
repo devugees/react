@@ -10691,7 +10691,9 @@ var App = function (_React$Component) {
         _react2.default.createElement(_nav2.default, null),
         _react2.default.createElement(_NavJumbotron2.default, null),
         _react2.default.createElement(_LikeCount2.default, { id: '2' }),
+        _react2.default.createElement('br', null),
         _react2.default.createElement(_ProductionList2.default, null),
+        _react2.default.createElement('br', null),
         _react2.default.createElement(_Footer2.default, null),
         _react2.default.createElement(_Modal2.default, null)
       );
@@ -19794,9 +19796,9 @@ var ProdList = function (_React$Component) {
   _createClass(ProdList, [{
     key: 'render',
     value: function render() {
-      var listArr = [['ehoyo'], ['bombom'], ['mutchacha']];
+      var listArr = [['ehoyo', 'Cuban Cigar', '1000 $', 'imgs/cubancigar.jpg'], ['bombom', 'Mustang', '2000 $', 'imgs/mustang.jpg'], ['muchacha', 'Hashesh', '3000 $', 'imgs/hash.jpg']];
       var tempArr = listArr.map(function (textProp) {
-        return _react2.default.createElement(_ProdComponent2.default, { text: textProp });
+        return _react2.default.createElement(_ProdComponent2.default, { text: textProp[0], title: textProp[1], prize: textProp[2], picSrc: textProp[3] });
       });
 
       return _react2.default.createElement(
@@ -19810,8 +19812,7 @@ var ProdList = function (_React$Component) {
         _react2.default.createElement(
           'div',
           { className: 'card-deck' },
-          tempArr,
-          ';'
+          tempArr
         )
       );
     }
@@ -19850,19 +19851,37 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var Comp = function Comp(_ref) {
-  var text = _ref.text;
+  var text = _ref.text,
+      title = _ref.title,
+      prize = _ref.prize,
+      picSrc = _ref.picSrc;
 
   return _react2.default.createElement(
     'div',
     { className: 'card' },
-    _react2.default.createElement('img', { className: 'card-img-top', src: 'http://www.placehold.it/300x200', alt: 'Card image cap' }),
+    _react2.default.createElement('img', { className: 'card-img-top', src: picSrc, alt: 'Card image cap' }),
     _react2.default.createElement(
       'div',
       { className: 'card-body' },
       _react2.default.createElement(
+        'h4',
+        { className: 'card-title' },
+        title
+      ),
+      _react2.default.createElement(
         'p',
         { className: 'card-text' },
         text
+      ),
+      _react2.default.createElement(
+        'p',
+        { className: 'text-right' },
+        prize
+      ),
+      _react2.default.createElement(
+        'a',
+        { href: '#', className: 'btn btn-primary card-img-bottom ' },
+        'buy me'
       )
     )
   );
@@ -19877,7 +19896,10 @@ var ProdComponent = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (ProdComponent.__proto__ || Object.getPrototypeOf(ProdComponent)).call(this, props));
 
     _this.state = {
-      text: props.text
+      picSrc: props.picSrc,
+      title: props.title,
+      text: props.text,
+      prize: props.prize
     };
     return _this;
   }
@@ -19886,7 +19908,7 @@ var ProdComponent = function (_React$Component) {
     key: 'render',
     value: function render() {
 
-      return _react2.default.createElement(Comp, { text: this.state.text });
+      return _react2.default.createElement(Comp, { text: this.state.text, title: this.state.title, prize: this.state.prize, picSrc: this.state.picSrc });
     }
   }]);
 

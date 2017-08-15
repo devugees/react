@@ -18,7 +18,9 @@ class App extends React.Component {
         <Nav/>
         <NavJumbotron/>
         <LikeCount id="2"/>
+        <br/>
         <ProdList/>
+        <br/>
         <FooterApp/>
         <Modal/>
       </div>
