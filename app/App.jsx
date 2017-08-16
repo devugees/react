@@ -3,8 +3,7 @@ import {render} from 'react-dom';
 
 import ProductsList from 'ProductsList.jsx';
 import FooterApp from 'Footer.jsx';
-import NavJumbotron from 'NavJumbotron.jsx';
-import LikeCount from 'LikeCount.jsx'
+import NavJumbotron from 'NavJumbotron.jsx' ;
 import Nav from 'nav.jsx';
 import Modal from 'Modal.jsx';
 
@@ -59,12 +58,13 @@ class App extends React.Component {
     return (
       <div>
         <Nav handleSearchChange={this.handleSearchChange}/>
+        <div className="container main">
         <NavJumbotron/>
-        <LikeCount id="2" likes={this.state.likesCount} updateLikes={this.updateLikes}/>
         <br/>
         <ProductsList products={this.state.searchState}/>
         <br/>
         <FooterApp/>
+        </div>
         <Modal/>
       </div>
     );

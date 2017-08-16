@@ -1,10 +1,13 @@
 import React from 'react';
 import {render} from 'react-dom';
 
+import LikeCount from 'LikeCount.jsx'
+
 class Product extends React.Component {
   constructor(props){
     super(props);
   }
+
   render() {
     return (
       <div className="card">
@@ -13,7 +16,8 @@ class Product extends React.Component {
           <h4 className="card-title">{this.props.title}</h4>
           <p className="card-text" >{this.props.text}</p>
           <p className="text-right">{this.props.prize}</p>
-          <a href="#" className="btn btn-primary card-img-bottom ">buy me</a>
+          <a href="#" className="btn btn-dark card-img-bottom ">Add to Cart</a>
+          <LikeCount />
         </div>
       </div>);
   }
