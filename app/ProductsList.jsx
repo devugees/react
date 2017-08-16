@@ -18,7 +18,7 @@ class ProductsList extends React.Component {
 
     return (
       <div>
-        <h3>Productlist</h3>
+        <h3>Productlist ({tempArr.length})</h3>
         <div className="card-columns">
           {tempArr}
         </div>
