@@ -6,9 +6,10 @@ import Product from 'Product.jsx';
 class ProductsList extends React.Component {
 
   render() {
-    const tempArr = this.props.products.map((product) => {
+    const tempArr = this.props.products.map((product,index) => {
       return (
         <Product
+          key={index}
           text={product.description}
           title={product.title}
           price={product.price}
