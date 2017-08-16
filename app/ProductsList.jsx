@@ -19,7 +19,7 @@ class ProductsList extends React.Component {
     return (
       <div>
         <h3>Productlist</h3>
-        <div className="card-deck">
+        <div className="card-columns">
           {tempArr}
         </div>
       </div>
