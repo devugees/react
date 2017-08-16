@@ -9,10 +9,10 @@ class ProductsList extends React.Component {
     //this.props.addToCart = this.addToCart.bind(this);
   }
   render() {
-
-    const tempArr = this.props.products.map((product) => {
+    const tempArr = this.props.products.map((product,index) => {
       return (
         <Product
+          key={index}
           text={product.description}
           title={product.title}
           price={product.price}
@@ -22,8 +22,8 @@ class ProductsList extends React.Component {
 
     return (
       <div>
-        <h3>Productlist</h3>
-        <div className="card-deck">
+        <h3>Productlist ({tempArr.length})</h3>
+        <div className="card-columns">
           {tempArr}
         </div>
       </div>

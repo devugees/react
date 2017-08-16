@@ -16,12 +16,16 @@ const PRODUCTS = [
   }, {
     description: 'bombom',
     title: 'Mustang',
+
     price: 1000,
+
     img: 'imgs/mustang.jpg'
   }, {
     description: 'muchacha',
     title: 'Hashesh',
+
     price: 10,
+
     img: 'imgs/hash.jpg'
   }
 ];
@@ -31,8 +35,10 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.addToCart = this.addToCart.bind(this);
-    this.state =
-     {cart :[]}
+    this.state = {
+      searchState: PRODUCTS,cart :[]
+    };
+    this.handleSearchChange = this.handleSearchChange.bind(this);
   }
   cartSum() {
     let sum = 0 ;
@@ -74,15 +80,26 @@ class App extends React.Component {
     return cartArray;
   }
 
+  handleSearchChange(event) {
+  let query=(event.target.value).toLowerCase();
+
+    let newProducts = PRODUCTS.filter((p) => {
+      let title=(p.title).toLowerCase();
+      let index=title.indexOf(query);
+      return index!=-1;
+    });
+    this.setState({searchState: newProducts})
+
+  }
 
   render() {
     return (
       <div>
-        <Nav itemCount={cartArray.length}/>
+        <Nav itemCount={cartArray.length} handleSearchChange={this.handleSearchChange}/>
         <div className="container main">
           <NavJumbotron/>
           <br/>
-          <ProductsList products={PRODUCTS} addToCart={this.addToCart}/>
+          <ProductsList products={this.state.searchState} addToCart={this.addToCart}/>
           <br/>
           <FooterApp/>
         </div>
