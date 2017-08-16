@@ -2,9 +2,43 @@ import React from 'react';
 
 class Modal extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.cartSum = this.cartSum.bind(this);
+  }
+
+  cartSum() {
+    let sum = 0 ;
+    for(let i = 0 ; i < this.props.cart.length ; i++) {
+      sum +=this.props.cart[i].price;
+    }
+    console.log(sum);
+    return sum;
+  }
+
   render() {
-    console.log("items"+this.props.cart);
-    console.log("the sum is "+this.props.sum);
+
+    let items = this.props.cart.map((item) => {
+      return (
+        <li className="media">
+          <img className="d-flex mr-3" src={item.src} alt="Generic placeholder image"/>
+          <div className="media-body">
+            <h5 className="mt-0 mb-1">{item.title}</h5>
+            <h6>{item.price+"$"}</h6>
+            <p>{item.text}</p>
+          </div>
+        <hr/>
+        </li>
+      );
+    });
+
+    //console.log(renderdCartItem);
+    //this.cartSum();
+    //this.setState({cart:renderdCartItem})
+
+
+    //console.log("items"+this.props.cart);
+    //console.log("the sum is "+this.props.sum);
     return (
       <div className="modal fade" id="exampleModalLong" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
         <div className="modal-dialog" role="document">
@@ -17,10 +51,10 @@ class Modal extends React.Component {
             </div>
             <div className="modal-body" id="cartBody">
               <ul className="list-unstyled" >
-                {this.props.cart}
+                {items}
               </ul>
 
-              <h3>{"Total "+this.props.sum+"$"}</h3>
+              <h3>{"Total "+this.cartSum()+"$"}</h3>
             </div>
             <div className="modal-footer">
 

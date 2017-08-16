@@ -30,24 +30,14 @@ const PRODUCTS = [
   }
 ];
 
-let cartArray = [];
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.addToCart = this.addToCart.bind(this);
     this.state = {
-      searchState: PRODUCTS,cart :[]
+      searchState: this.props.products, cartArray: []
     };
     this.handleSearchChange = this.handleSearchChange.bind(this);
-  }
-  cartSum() {
-    let sum = 0 ;
-    for(let i = 0 ; i < cartArray.length ; i++) {
-
-      sum +=cartArray[i].price;
-    }
-    console.log(sum);
-    return sum;
   }
   addToCart(title, text, price, picSrc ) {
     //preventDefault();
@@ -57,31 +47,13 @@ class App extends React.Component {
       price: price,
       src :picSrc
     }
-    cartArray.push(cartItem);
-    console.log(cartArray);
-    let renderdCartItem = cartArray.map((item) => {
-
-      return (
-        <li className="media">
-          <img className="d-flex mr-3" src={item.src} alt="Generic placeholder image"/>
-          <div className="media-body">
-            <h5 className="mt-0 mb-1">{item.title}</h5>
-            <h6>{item.price+"$"}</h6>
-            <p>{item.text}</p>
-          </div>
-        <hr/>
-        </li>
-      );
-    });
-
-    console.log(renderdCartItem);
-    this.cartSum();
-    this.setState({cart:renderdCartItem})
-    return cartArray;
+    let newCartArray = this.state.cartArray;
+    newCartArray.push(cartItem);
+    this.setState({cartArray: newCartArray});
   }
 
   handleSearchChange(event) {
-  let query=(event.target.value).toLowerCase();
+    let query=(event.target.value).toLowerCase();
 
     let newProducts = PRODUCTS.filter((p) => {
       let title=(p.title).toLowerCase();
@@ -95,7 +67,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Nav itemCount={cartArray.length} handleSearchChange={this.handleSearchChange}/>
+        <Nav itemCount={this.state.cartArray.length} handleSearchChange={this.handleSearchChange}/>
         <div className="container main">
           <NavJumbotron/>
           <br/>
@@ -103,7 +75,7 @@ class App extends React.Component {
           <br/>
           <FooterApp/>
         </div>
-        <Modal cart={this.state.cart} sum={this.cartSum()}/>
+        <Modal cart={this.state.cartArray} />
       </div>
     );
 
@@ -111,7 +83,9 @@ class App extends React.Component {
 }
 
 render(
-  <App/>, document.getElementById('app'));
+  <div>
+  <App key="1" products={PRODUCTS}/><App key="2" products={PRODUCTS}/>
+  </div>, document.getElementById('app'));
 
 $(function() {
   $('[data-toggle="popover"]').popover()
