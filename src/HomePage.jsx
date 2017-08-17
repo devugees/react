@@ -13,7 +13,7 @@ class HomePage extends React.Component {
         <div className="container main">
           <NavJumbotron/>
           <br/>
-          <ProductsList products={this.props.products} addToCart={this.props.addToCart}/>
+          <ProductsList products={this.props.products} addToCart={this.props.addToCart} handleradd={this.props.handleradd}/>
           <br/>
         </div>
         <Modal cart={this.props.cart}/>

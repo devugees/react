@@ -38,11 +38,8 @@ class Nav extends React.Component {
 
               </ul>
               <SearchFunction handleSearchChange={this.props.handleSearchChange}/>
-              <button id="test" type="button" className="btn btn-lg btn-danger ml-3" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">
-                <i className="fa fa-heart-o" aria-hidden="true"></i>
-              </button>
-              
-              <WishListButton wishlist={this.props.wishlist}/>     
+
+              <WishListButton wishlist={this.props.wishlist}/>
             </div>
           </div>
         </nav>
