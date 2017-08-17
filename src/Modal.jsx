@@ -21,7 +21,7 @@ class Modal extends React.Component {
     let items = this.props.cart.map((item) => {
       return (
         <li className="media">
-          <img className="d-flex mr-3" src={item.src} alt="Generic placeholder image"/>
+          <img className="d-flex mr-3" src={item.src} alt={item.title}/>
           <div className="media-body">
             <h5 className="mt-0 mb-1">{item.title}</h5>
             <h6>{item.price+"$"}</h6>

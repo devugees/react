@@ -1,34 +1,9 @@
 import React from 'react';
-import {render} from 'react-dom';
-
-import ProductsList from 'ProductsList.jsx';
-import FooterApp from 'Footer.jsx';
-import NavJumbotron from 'NavJumbotron.jsx';
-import Nav from 'nav.jsx';
-import Modal from 'Modal.jsx';
-
-const PRODUCTS = [
-  {
-    description: 'ehoyo',
-    title: 'Cuban Cigar',
-    price: 1000,
-    img: 'imgs/cubancigar.jpg'
-  }, {
-    description: 'bombom',
-    title: 'Mustang',
-
-    price: 1000,
-
-    img: 'imgs/mustang.jpg'
-  }, {
-    description: 'muchacha',
-    title: 'Hashesh',
-
-    price: 10,
-
-    img: 'imgs/hash.jpg'
-  }
-];
+import ProductsList from './ProductsList.jsx';
+import Footer from './Footer.jsx';
+import NavJumbotron from './NavJumbotron.jsx';
+import Nav from './Nav.jsx';
+import Modal from './Modal.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -55,7 +30,7 @@ class App extends React.Component {
   handleSearchChange(event) {
     let query=(event.target.value).toLowerCase();
 
-    let newProducts = PRODUCTS.filter((p) => {
+    let newProducts = this.props.products.filter((p) => {
       let title=(p.title).toLowerCase();
       let index=title.indexOf(query);
       return index!=-1;
@@ -73,20 +48,13 @@ class App extends React.Component {
           <br/>
           <ProductsList products={this.state.searchState} addToCart={this.addToCart}/>
           <br/>
-          <FooterApp/>
         </div>
         <Modal cart={this.state.cartArray} />
+        <Footer/>
       </div>
     );
 
   }
 }
 
-render(
-  <div>
-  <App key="1" products={PRODUCTS}/><App key="2" products={PRODUCTS}/>
-  </div>, document.getElementById('app'));
-
-$(function() {
-  $('[data-toggle="popover"]').popover()
-})
+export default App;

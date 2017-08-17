@@ -1,12 +1,10 @@
 import React from 'react';
-import {render} from 'react-dom';
 
-import Product from 'Product.jsx';
+import Product from './Product.jsx';
 
 class ProductsList extends React.Component {
   constructor(props) {
     super(props);
-    //this.props.addToCart = this.addToCart.bind(this);
   }
   render() {
     const tempArr = this.props.products.map((product,index) => {

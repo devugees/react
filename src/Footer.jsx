@@ -1,14 +1,12 @@
 import React from 'react';
-import {render} from 'react-dom';
 
-
-class FooterApp extends React.Component{
+class Footer extends React.Component{
   render(){
     return (
       <div>
         <footer id="footer-app" className="py-3 bg-light" >
           <div className="container text-center">
-            <a href="#">Copyright</a> // <a href="#">Aknowledgements</a> // <a href="#">Imprint</a>
+            <a href="#copyright">Copyright</a> \\ <a href="#ack">Acknowledgements</a> \\ <a href="#imprint">Imprint</a>
           </div>
         </footer>
       </div>
@@ -16,5 +14,4 @@ class FooterApp extends React.Component{
   }
 }
 
-
-  export default FooterApp;
+export default Footer;

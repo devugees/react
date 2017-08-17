@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchFunction from 'SearchFunction.jsx';
+import SearchFunction from './SearchFunction.jsx';
 
 class Nav extends React.Component {
   render() {
@@ -15,12 +15,14 @@ class Nav extends React.Component {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto">
               <li className="nav-item active">
-                <a className="nav-link" href="#">D E V U G E E S
+                <a className="nav-link" href="#home">D E V U G E E S
                   <span className="sr-only">(current)</span>
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link " data-toggle="modal" data-target="#exampleModalLong" href="#"><img src="imgs/shopping-cart.png"/><span className=" cartBadge">{this.props.itemCount}</span></a>
+                <a className="nav-link" data-toggle="modal" data-target="#exampleModalLong" href="#">
+                  <img src="imgs/shopping-cart.png"/><span className=" cartBadge">{this.props.itemCount}</span>
+                </a>
               </li>
             </ul>
             <SearchFunction handleSearchChange={this.props.handleSearchChange}/>
