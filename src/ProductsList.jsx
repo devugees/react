@@ -3,9 +3,7 @@ import React from 'react';
 import Product from './Product.jsx';
 
 class ProductsList extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+  
   render() {
     const tempArr = this.props.products.map((product,index) => {
       return (

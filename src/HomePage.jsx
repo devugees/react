@@ -1,13 +1,8 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
-
-
-
 import Modal from './Modal.jsx';
 import ProductsList from './ProductsList.jsx';
 import Footer from './Footer.jsx';
 import NavJumbotron from './NavJumbotron.jsx';
-import Nav from './Nav.jsx';
 
 
 class HomePage extends React.Component {
