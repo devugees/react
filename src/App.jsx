@@ -1,9 +1,14 @@
 import React from 'react';
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+
+import Modal from './Modal.jsx';
 import ProductsList from './ProductsList.jsx';
 import Footer from './Footer.jsx';
 import NavJumbotron from './NavJumbotron.jsx';
 import Nav from './Nav.jsx';
-import Modal from './Modal.jsx';
+import HomePage from "./HomePage.jsx";
+import ProductPage from "./ProductPage.jsx";
+
 
 class App extends React.Component {
   constructor(props) {
@@ -14,6 +19,9 @@ class App extends React.Component {
     };
     this.handleSearchChange = this.handleSearchChange.bind(this);
   }
+
+
+
   addToCart(title, text, price, picSrc ) {
     //preventDefault();
     let cartItem = {
@@ -41,17 +49,13 @@ class App extends React.Component {
 
   render() {
     return (
+      <Router>
       <div>
         <Nav itemCount={this.state.cartArray.length} handleSearchChange={this.handleSearchChange}/>
-        <div className="container main">
-          <NavJumbotron/>
-          <br/>
-          <ProductsList products={this.state.searchState} addToCart={this.addToCart}/>
-          <br/>
-        </div>
-        <Modal cart={this.state.cartArray} />
-        <Footer/>
+        <Route exact path="/home" render={()=><HomePage products={this.state.searchState} cart={this.state.cartArray} addtocart={this.addToCart}/>} />
+        <Route  path="/addproduct" component={ProductPage}  />
       </div>
+      </Router>
     );
 
   }
