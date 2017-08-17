@@ -10,8 +10,11 @@ class App extends React.Component {
     super(props);
     this.addToCart = this.addToCart.bind(this);
     this.state = {
-      searchState: this.props.products, cartArray: []
+      searchState: this.props.products, 
+      cartArray: [], 
+      wishlist:[]
     };
+    this.handleradd = this.handleradd.bind(this);
     this.handleSearchChange = this.handleSearchChange.bind(this);
   }
   addToCart(title, text, price, picSrc ) {
@@ -38,15 +41,20 @@ class App extends React.Component {
     this.setState({searchState: newProducts})
 
   }
+  handleradd(title){
+  let newWishlist = this.state.wishlist
+  newWishlist.push(title);
+    this.setState({wishlist:newWishlist})
+  }
 
   render() {
     return (
       <div>
-        <Nav itemCount={this.state.cartArray.length} handleSearchChange={this.handleSearchChange}/>
+        <Nav itemCount={this.state.cartArray.length} handleSearchChange={this.handleSearchChange} wishlist={this.state.wishlist}/>
         <div className="container main">
           <NavJumbotron/>
           <br/>
-          <ProductsList products={this.state.searchState} addToCart={this.addToCart}/>
+          <ProductsList products={this.state.searchState} addToCart={this.addToCart} handleradd= {this.handleradd}/>
           <br/>
         </div>
         <Modal cart={this.state.cartArray} />
