@@ -1,6 +1,7 @@
 import React from 'react';
 import SearchFunction from './SearchFunction.jsx';
-import {Link} from 'react-router-dom'
+import WishListButton from './WishListButton.jsx';
+import {Link} from 'react-router-dom';
 
 class Nav extends React.Component {
   render() {
@@ -28,7 +29,6 @@ class Nav extends React.Component {
                     <span className=" cartBadge">{this.props.itemCount}</span>
                   </a>
                 </li>
-
                 <li className="nav-item">
                   <Link  to="/" className="nav-link">Home</Link>
                 </li>
@@ -41,7 +41,8 @@ class Nav extends React.Component {
               <button id="test" type="button" className="btn btn-lg btn-danger ml-3" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">
                 <i className="fa fa-heart-o" aria-hidden="true"></i>
               </button>
-
+              
+              <WishListButton wishlist={this.props.wishlist}/>     
             </div>
           </div>
         </nav>

@@ -11,8 +11,11 @@ class App extends React.Component {
     super(props);
     this.addToCart = this.addToCart.bind(this);
     this.state = {
-      searchState: this.props.products, cartArray: []
+      searchState: this.props.products, 
+      cartArray: [], 
+      wishlist:[]
     };
+    this.handleradd = this.handleradd.bind(this);
     this.handleSearchChange = this.handleSearchChange.bind(this);
   }
 
@@ -39,13 +42,18 @@ class App extends React.Component {
     this.setState({searchState: newProducts})
 
   }
+  handleradd(title){
+  let newWishlist = this.state.wishlist
+  newWishlist.push(title);
+    this.setState({wishlist:newWishlist})
+  }
 
   render() {
     return (
       <Router>
       <div>
-        <Nav itemCount={this.state.cartArray.length} handleSearchChange={this.handleSearchChange}/>
-        <Route exact path="/" render={()=><HomePage products={this.state.searchState} cart={this.state.cartArray} addtocart={this.addToCart}/>} />
+        <Nav itemCount={this.state.cartArray.length} handleSearchChange={this.handleSearchChange} wishlist={this.state.wishlist/>
+        <Route exact path="/" render={()=><HomePage products={this.state.searchState} cart={this.state.cartArray} addtocart={this.addToCart} handleradd={this.handleradd}/>} />
         <Route  path="/addproduct" component={ProductPage}  />
       </div>
       </Router>
