@@ -1,9 +1,10 @@
 import React from 'react';
-import ProductsList from './ProductsList.jsx';
-import Footer from './Footer.jsx';
-import NavJumbotron from './NavJumbotron.jsx';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
+
 import Nav from './Nav.jsx';
-import Modal from './Modal.jsx';
+import HomePage from "./HomePage.jsx";
+import ProductPage from "./ProductPage.jsx";
+
 
 class App extends React.Component {
   constructor(props) {
@@ -17,13 +18,13 @@ class App extends React.Component {
     this.handleradd = this.handleradd.bind(this);
     this.handleSearchChange = this.handleSearchChange.bind(this);
   }
+
   addToCart(title, text, price, picSrc ) {
-    //preventDefault();
     let cartItem = {
       title: title,
       text: text,
       price: price,
-      src :picSrc
+      src: picSrc
     }
     let newCartArray = this.state.cartArray;
     newCartArray.push(cartItem);
@@ -34,9 +35,9 @@ class App extends React.Component {
     let query=(event.target.value).toLowerCase();
 
     let newProducts = this.props.products.filter((p) => {
-      let title=(p.title).toLowerCase();
-      let index=title.indexOf(query);
-      return index!=-1;
+      let title = p.title.toLowerCase();
+      let index = title.indexOf(query);
+      return index !== -1;
     });
     this.setState({searchState: newProducts})
 
@@ -49,17 +50,13 @@ class App extends React.Component {
 
   render() {
     return (
+      <Router>
       <div>
-        <Nav itemCount={this.state.cartArray.length} handleSearchChange={this.handleSearchChange} wishlist={this.state.wishlist}/>
-        <div className="container main">
-          <NavJumbotron/>
-          <br/>
-          <ProductsList products={this.state.searchState} addToCart={this.addToCart} handleradd= {this.handleradd}/>
-          <br/>
-        </div>
-        <Modal cart={this.state.cartArray} />
-        <Footer/>
+        <Nav itemCount={this.state.cartArray.length} handleSearchChange={this.handleSearchChange} wishlist={this.state.wishlist/>
+        <Route exact path="/" render={()=><HomePage products={this.state.searchState} cart={this.state.cartArray} addtocart={this.addToCart} handleradd={this.handleradd}/>} />
+        <Route  path="/addproduct" component={ProductPage}  />
       </div>
+      </Router>
     );
 
   }
